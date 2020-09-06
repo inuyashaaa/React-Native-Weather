@@ -2,9 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import axios from 'axios'
 import LottieView from 'lottie-react-native'
+import { TouchableOpacity } from 'react-native-gesture-handler'
 import { loading } from '../../assets/animations'
 
-const MainScreen = () => {
+const MainScreen = (props) => {
+  console.tron.log({ props })
+  const { navigation } = props
   const [weather, setWeather] = useState(false)
 
   useEffect(() => {
@@ -37,6 +40,13 @@ const MainScreen = () => {
       <Text>
         {weather?.main?.temp}
       </Text>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('SettingScreen')
+        }}
+      >
+        <Text>Go Settting</Text>
+      </TouchableOpacity>
     </View>
   )
 }

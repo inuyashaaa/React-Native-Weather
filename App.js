@@ -1,11 +1,12 @@
-import 'react-native-gesture-handler'
+import { TouchableOpacity } from 'react-native-gesture-handler'
 import React from 'react'
 import { View, Text } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { MainScreen } from './src/screens'
 
-const SettingScreen = () => {
+const SettingScreen = (props) => {
+  const { navigation } = props
   return (
     <View style={{
       flex: 1,
@@ -15,6 +16,14 @@ const SettingScreen = () => {
     }}
     >
       <Text>Setting Screen</Text>
+
+      <TouchableOpacity
+        onPress={() => {
+          navigation.goBack()
+        }}
+      >
+        <Text>Go Back</Text>
+      </TouchableOpacity>
     </View>
   )
 }
