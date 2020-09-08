@@ -1,39 +1,18 @@
-import { TouchableOpacity } from 'react-native-gesture-handler'
 import React from 'react'
-import { View, Text } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import { MainScreen } from './src/screens'
-
-const SettingScreen = (props) => {
-  const { navigation } = props
-  return (
-    <View style={{
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: 'blue',
-    }}
-    >
-      <Text>Setting Screen</Text>
-
-      <TouchableOpacity
-        onPress={() => {
-          navigation.goBack()
-        }}
-      >
-        <Text>Go Back</Text>
-      </TouchableOpacity>
-    </View>
-  )
-}
+import { MainScreen, SettingScreen } from './src/screens'
 
 const Stack = createStackNavigator()
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
         <Stack.Screen name="MainScreen" component={MainScreen} />
         <Stack.Screen name="SettingScreen" component={SettingScreen} />
       </Stack.Navigator>

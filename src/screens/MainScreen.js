@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import {
+  View, Text, StyleSheet, Image, Dimensions, ImageBackground,
+} from 'react-native'
 import axios from 'axios'
 import LottieView from 'lottie-react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import moment from 'moment'
 import { loading } from '../../assets/animations'
+import { search, menu, background1 } from '../../assets/images'
 
+const { width, height } = Dimensions.get('window')
 const MainScreen = (props) => {
   console.tron.log({ props })
   const { navigation } = props
@@ -12,6 +18,9 @@ const MainScreen = (props) => {
 
   useEffect(() => {
     getNewWeatherByLocation()
+    console.log('================================================')
+    console.log('moment', moment().format('LT - dddd, DD MMM YYYY'))
+    console.log('================================================')
   }, [])
 
   const getNewWeatherByLocation = async () => {
@@ -37,16 +46,49 @@ const MainScreen = (props) => {
 
   return (
     <View style={styles.container}>
-      <Text>
-        {weather?.main?.temp}
-      </Text>
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate('SettingScreen')
+      {/* <Image
+        source={background1}
+        style={{
+          width,
+          height,
+          position: 'absolute',
         }}
-      >
-        <Text>Go Settting</Text>
-      </TouchableOpacity>
+      /> */}
+      <ImageBackground source={background1} style={{ width, height }}>
+        <SafeAreaView />
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 34 }}>
+          <Image
+            source={search}
+            style={{
+              width: 40,
+              height: 40,
+            }}
+          />
+          <Image
+            source={menu}
+            style={{
+              width: 40,
+              height: 40,
+            }}
+          />
+        </View>
+        <View style={{ paddingHorizontal: 34 }}>
+          <Text style={{
+            fontFamily: 'Gilroy-Bold', fontSize: 36, color: '#FFFFFF', marginTop: 28, marginBottom: 8,
+          }}
+          >
+            Ho Chi Minh City
+          </Text>
+          <Text style={{ fontFamily: 'Gilroy-Bold', fontSize: 18, color: '#FFFFFF' }}>{moment().format('LT - dddd, DD MMM YYYY')}</Text>
+        </View>
+        <View style={{ paddingTop: 120, paddingLeft: 34 }}>
+          <Text style={{ color: 'white', fontFamily: 'Gilroy-Bold', fontSize: 96 }}>
+            {weather?.main?.temp}
+            {' '}
+            *
+          </Text>
+        </View>
+      </ImageBackground>
     </View>
   )
 }
@@ -56,7 +98,5 @@ export default MainScreen
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 })

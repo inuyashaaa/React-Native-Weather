@@ -20,6 +20,7 @@
 		8F4FFFDBA73435E551DEE79B /* libPods-weather-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE1D249EC24C64BDEACF7286 /* libPods-weather-tvOS.a */; };
 		95E2F7A5EE73FE0DAA469F73 /* libPods-weather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BBB644F91D3CC2DE3EF5D8D /* libPods-weather.a */; };
 		9AF21DD1BBF17565440808A0 /* libPods-weather-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1A673ECEBF5866D68C188A7 /* libPods-weather-tvOSTests.a */; };
+		6CF327E8493E47DCB8196421 /* Gilroy-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EDDE783324054E28B4CB41D7 /* Gilroy-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		DEFBD83174F0174640BE772C /* Pods-weather-weatherTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weather-weatherTests.release.xcconfig"; path = "Target Support Files/Pods-weather-weatherTests/Pods-weather-weatherTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		EDDE783324054E28B4CB41D7 /* Gilroy-Bold.ttf */ = {isa = PBXFileReference; name = "Gilroy-Bold.ttf"; path = "../assets/fonts/Gilroy-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				522BF7E5A81481071950A653 /* Pods */,
+				6BF68B1439D64553A0E95B0F /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -196,6 +199,15 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		6BF68B1439D64553A0E95B0F /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				EDDE783324054E28B4CB41D7 /* Gilroy-Bold.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -342,6 +354,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				6CF327E8493E47DCB8196421 /* Gilroy-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
