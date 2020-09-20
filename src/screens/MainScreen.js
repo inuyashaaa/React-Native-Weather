@@ -8,16 +8,18 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import moment from 'moment'
 import AsyncStorage from '@react-native-community/async-storage'
+import { useDispatch, useSelector } from 'react-redux'
 import { loading } from '../../assets/animations'
 import { search, menu, background1 } from '../../assets/images'
 import * as Images from '../../assets/images'
 import { Fonts } from '../../assets/styles'
+import { weatherActions } from '../redux/actions'
 
 const { width, height } = Dimensions.get('window')
 const MainScreen = (props) => {
-  console.tron.log({ props })
+  const dispatch = useDispatch()
   const { navigation, route } = props
-  const [weather, setWeather] = useState(route?.params?.weather)
+  const weather = useSelector((state) => state.weather)
   const [isLoadingData, setIsLoadingData] = useState(false)
 
   useEffect(() => {
@@ -25,12 +27,7 @@ const MainScreen = (props) => {
   }, [])
 
   const getNewWeatherByLocation = async () => {
-    const response = await axios.get('http://api.openweathermap.org/data/2.5/weather?q=ho%20Chi%20Minh&appid=5a946fa5e49dfe52dca7c9e3e78e9463&units=metric')
-    const timeout = setTimeout(() => {
-      setWeather(response.data)
-      AsyncStorage.setItem('weather', JSON.stringify(response.data))
-      clearTimeout(timeout)
-    }, 2000)
+    dispatch(weatherActions.getWeather('ho chi minh'))
   }
 
   return (
