@@ -10,6 +10,7 @@ import moment from 'moment'
 import AsyncStorage from '@react-native-community/async-storage'
 import { loading } from '../../assets/animations'
 import { search, menu, background1 } from '../../assets/images'
+import * as Images from '../../assets/images'
 import { Fonts } from '../../assets/styles'
 
 const { width, height } = Dimensions.get('window')
@@ -47,7 +48,7 @@ const MainScreen = (props) => {
         <SafeAreaView />
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 34 / 375 * width }}>
           <Image
-            source={search}
+            source={Images.search}
             style={{
               width: 40 / 375 * width,
               height: 40 / 375 * width,
